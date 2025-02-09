@@ -58,32 +58,54 @@ namespace Wk4Ex1
                     return amount;
             }
         }
-        static void main()
+        static void Main(string[] args)
         {
             //declarations
             double amount = 0;
             string fromCurrency = "";
             int choice = 0;
+            double convert = 0;
+
+            while (true)
+            {
+                //asking user how much currency they want to convert
+                Console.WriteLine("Enter how much currency do you want to convert: ");
+                //user inputs their currency
+                amount = Convert.ToDouble(Console.ReadLine());
+
+                //asking user what currency they are using
+                Console.WriteLine("What Currency are you using (USD, EUR, JPY): ");
+                //user inputs their currency
+                fromCurrency = Console.ReadLine();
 
 
-            //asking user how much currency they want to convert
-            Console.WriteLine("Enter how much currency do you want to convert: ");
-            //user inputs their currency
-            amount = Convert.ToDouble(Console.ReadLine());
 
-            //asking user what currency they are using
-            Console.WriteLine("What Currency do you want to convert to (USD, EUR, JPY): ");
-            //user inputs their currency
-            fromCurrency = Console.ReadLine();
+                //user picks witch currency they want to convert
+                Console.WriteLine("Select what currency you want to convert to:");
+                Console.WriteLine("1: USD");
+                Console.WriteLine("2: EUR");
+                Console.WriteLine("3: JPY");
+                choice = Convert.ToInt32(Console.ReadLine());
 
-            //user picks witch currency they want to convert
-            Console.WriteLine("Select what currency you want to convert to:");
-            Console.WriteLine("1: USD");
-            Console.WriteLine("2: EUR");
-            Console.WriteLine("3: JPY");
-            choice = Convert.ToInt32(Console.ReadLine());
-
-
+                switch (choice)
+                {
+                    //convert the amount to USD
+                    case 1:
+                        convert = ConvertToUSD(amount, fromCurrency);
+                        Console.WriteLine($"Converted Amount to USD: {convert:F2}");
+                        break;
+                    //convert the amount to USD
+                    case 2:
+                        convert = ConvertToEUR(amount, fromCurrency);
+                        Console.WriteLine($"Converted Amount to EUR: {convert:F2}");
+                        break;
+                    //convert the amount to USD
+                    case 3:
+                        convert = ConvertToJPY(amount, fromCurrency);
+                        Console.WriteLine($"Converted Amount to JPY: {convert:F2}");
+                        break;
+                }
+            }
         }
     }
 }
