@@ -59,8 +59,31 @@ namespace Wk4Ex1
             }
         }
         static void main()
-        { 
-            
+        {
+            //declarations
+            double amount = 0;
+            string fromCurrency = "";
+            int choice = 0;
+
+
+            //asking user how much currency they want to convert
+            Console.WriteLine("Enter how much currency do you want to convert: ");
+            //user inputs their currency
+            amount = Convert.ToDouble(Console.ReadLine());
+
+            //asking user what currency they are using
+            Console.WriteLine("What Currency do you want to convert to (USD, EUR, JPY): ");
+            //user inputs their currency
+            fromCurrency = Console.ReadLine();
+
+            //user picks witch currency they want to convert
+            Console.WriteLine("Select what currency you want to convert to:");
+            Console.WriteLine("1: USD");
+            Console.WriteLine("2: EUR");
+            Console.WriteLine("3: JPY");
+            choice = Convert.ToInt32(Console.ReadLine());
+
+
         }
     }
 }
